@@ -25,20 +25,14 @@ SOFTWARE.
 """
 
 # Import required modules
+import os
 import sys
 import getopt
+from hashjack_tools import *
 
-
-# Terminal text type and color codes
-blue = '\033[94m'
-green = '\033[92m'
-yellow = '\033[93m'
-red = '\033[91m'
-white = '\033[0m'
-bold = '\033[1m'
 
 # Script version number variable
-version = '1.0.0'
+version = '1.0.1'
 
 # HashJack project site variable
 project_site = 'https://github.com/5kyc0d3r/hashjack'
@@ -48,7 +42,7 @@ usage = '''
 HashJack {} - (C) 2017 5kyc0d3r
 View this project on Github: {}
 
-usage: ./hashjack.py.py --hash <hash-to-crack> --wordlist <path-to-wordlist> [options]
+usage: ./hashjack.py --hash <hash-to-crack> --wordlist <path-to-wordlist> [options]
 
 Required:
 
@@ -61,6 +55,12 @@ Options:
   -V, --version                         print the hashjack version number and exit
   -v, --verbose                         enable verbose output mode
 '''.format(version, green + bold + project_site + white)
+
+
+def start_cracking(hash_value, wordlist, verbose):
+    if verbose:
+        print info('Hash: ' + str(hash_value))
+        print info('Wordlist path: ' + str(wordlist))
 
 
 def main(hash_value=None, wordlist=None, verbose=False):
@@ -94,6 +94,15 @@ def main(hash_value=None, wordlist=None, verbose=False):
     if not hash_value or not wordlist:
         print(usage)
         sys.exit(1)
+
+    # Check if wordlist exists
+    if os.path.isfile(wordlist):
+        pass
+    else:
+        print error('The specified wordlist is not a file or does not exist.')
+        sys.exit(1)
+
+    start_cracking(hash_value, wordlist, verbose)
 
 
 if __name__ == "__main__":
