@@ -6,6 +6,34 @@
 
 Open source tool for cracking hashes built in Python.
 
+## Usage
+```
+HashJack 1.0.2 - (C) 2017 5kyc0d3r
+View this project on Github: https://github.com/5kyc0d3r/hashjack
+
+usage: ./hashjack.py --hash <hash-to-crack> --wordlist <path-to-wordlist> [options]
+
+Required:
+
+  -H, --hash <hash-to-crack>            specify the hash to crack (hash type auto-detected)
+  -w, --wordlist <path-to-wordlist>     specify the path to the wordlist file
+
+Options:
+
+  -h, --help                            print this help menu and exit
+  -V, --version                         print the hashjack version number and exit
+  -v, --verbose                         enable verbose output mode
+
+Supported hash types:
+    md5, sha-1, sha-224, sha-256, sha-384, sha-512
+
+HashJack is a tool to easily crack password hashes using a dictionary / wordlist.
+The project is licensed under the terms of the MIT license and is available as
+FOSS (Free and Open Source Software) on Github. The latest version of this tool
+can always be found at https://github.com/5kyc0d3r/hashjack.
+```
+
+
 ## Installation
 ### Pip
 Hashjack is available on PyPi and can therefore be installed with pip.
