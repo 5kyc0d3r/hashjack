@@ -59,8 +59,8 @@ Options:
 
 def start_cracking(hash_value, wordlist, verbose):
     if verbose:
-        print info('Hash: ' + str(hash_value))
-        print info('Wordlist path: ' + str(wordlist))
+        print(info('Hash: ' + str(hash_value)))
+        print(info('Wordlist path: ' + str(wordlist)))
 
 
 def main(hash_value=None, wordlist=None, verbose=False):
@@ -99,7 +99,7 @@ def main(hash_value=None, wordlist=None, verbose=False):
     if os.path.isfile(wordlist):
         pass
     else:
-        print error('The specified wordlist is not a file or does not exist.')
+        print(error('The specified wordlist is not a file or does not exist.'))
         sys.exit(1)
 
     start_cracking(hash_value, wordlist, verbose)
