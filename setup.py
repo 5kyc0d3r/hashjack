@@ -18,7 +18,7 @@ setup(
     packages=['hashjack_tools'],
     scripts=['scripts/hashjack'],
     url='https://github.com/5kyc0d3r/hashjack',
-    download_url='https://github.com/5kyc0d3r/hashjack/archive/1.0.1.tar.gz',
+    download_url='https://github.com/5kyc0d3r/hashjack/archive/1.0.2.tar.gz',
     keywords=['hashjack', 'hashing', 'cracking', 'brute-force', 'python'],
     license='MIT',
     author='5kyc0d3r',
