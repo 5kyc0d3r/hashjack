@@ -24,6 +24,11 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
 
+# Import required modules
+import sys
+import getopt
+
+
 # Terminal text type and color codes
 blue = '\033[94m'
 green = '\033[92m'
@@ -43,7 +48,7 @@ usage = '''
 HashJack {} - (C) 2017 5kyc0d3r
 View this project on Github: {}
 
-usage: hashjack --hash <hash-to-crack> --wordlist <path-to-wordlist> [options]
+usage: ./hashjack.py.py --hash <hash-to-crack> --wordlist <path-to-wordlist> [options]
 
 Required:
 
@@ -53,8 +58,43 @@ Required:
 Options:
 
   -h, --help                            print this help menu and exit
-  -v, --version                         print the hashjack version number and exit
-  -V, --verbose                         enable verbose output mode
+  -V, --version                         print the hashjack version number and exit
+  -v, --verbose                         enable verbose output mode
 '''.format(version, green + bold + project_site + white)
 
-print usage
+
+def main(hash_value=None, wordlist=None, verbose=False):
+    try:
+        opts, args = getopt.getopt(sys.argv[1:], 'hVvH:w:', ['help', 'version', 'verbose', 'hash=', 'wordlist='])
+    except getopt.GetoptError as e:
+        print(usage)
+        print(str(e) + '\n')
+        sys.exit(1)
+
+    for opt, arg in opts:
+
+        if opt in ('-h', '--help'):
+            print(usage)
+            sys.exit(0)
+
+        elif opt in ('-V', '--version'):
+            print('HashJack version %s' % version)
+            sys.exit(0)
+
+        elif opt in ('-v', '--verbose'):
+            verbose = True
+
+        elif opt in ('-H', '--hash'):
+            hash_value = arg
+
+        elif opt in ('-w', '--wordlist'):
+            wordlist = arg
+
+    # Check if hash and wordlist value is empty
+    if not hash_value or not wordlist:
+        print(usage)
+        sys.exit(1)
+
+
+if __name__ == "__main__":
+    main()
