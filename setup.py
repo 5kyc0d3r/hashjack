@@ -14,7 +14,7 @@ except IOError:
 
 setup(
     name='hashjack',
-    version='1.0.1',
+    version='1.0.2',
     packages=['hashjack_tools'],
     scripts=['scripts/hashjack'],
     url='https://github.com/5kyc0d3r/hashjack',
