@@ -1,1 +1,14 @@
 #!/usr/bin/python
+
+usage = """
+usage: ./hashjack --hash <hash> --wordlist <path-to-wordlist> [options]
+
+Required:
+  -H, --hash <hash>                     specify the hash to crack (hash type auto-detected)
+  -w, --wordlist <path-to-wordlist>     specify the path to the wordlist file to crack specified hash
+
+Options:
+  -h, --help                            print this help menu and exit
+  -v, --version                         print the hashjack version number and exit
+  -V, --verbose                         enable verbose output mode
+"""
