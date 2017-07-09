@@ -9,6 +9,10 @@ def info(message):
     return '[' + blue + '+' + white + '] ' + str(message)
 
 
+def log(message):
+    return '[' + green + '*' + white + '] ' + green + str(message) + white
+
+
 def warning(message):
     return '[' + yellow + '!' + white + '] ' + str(message)
 
