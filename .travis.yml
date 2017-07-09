@@ -1,0 +1,7 @@
+language: python
+python:
+  - "2.7"
+
+script:
+  - sudo python setup.py install
+  - sudo hashjack --help

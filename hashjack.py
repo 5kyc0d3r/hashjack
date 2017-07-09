@@ -57,7 +57,8 @@ Options:
   -V, --version                         print the hashjack version number and exit
   -v, --verbose                         enable verbose output mode
   
-Supported hash types: md5, sha-1, sha-256, sha-512
+Supported hash types:
+    md5, sha-1, sha-256, sha-512
 
 HashJack is a tool to easily crack password hashes using a dictionary / wordlist.
 The project is licensed under the terms of the MIT license and is available as
