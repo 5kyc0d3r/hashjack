@@ -38,7 +38,7 @@ from passlib.exc import PasswordSizeError
 
 
 # Script version number variable
-version = '1.0.3'
+version = '1.0.4'
 
 # HashJack project site variable
 project_site = 'https://github.com/5kyc0d3r/hashjack'
@@ -65,6 +65,7 @@ Options:
   -v, --verbose                         enable verbose output mode
   -t, --type <hash-type>                manually specify the type of the hash
   -r, --restore <restore-file>          use a hashjack restore file to continue hash cracking from a previous session
+  -s, --hashes                          print all the supported hash algorithms and exit
   
 Supported hash types:
 
@@ -309,8 +310,8 @@ def start_cracking(hash_value, wordlist, hash_type, verbose, start_from_line=1):
 
 def main(hash_value=None, wordlist=None, hash_type='', restore_file='', verbose=False):
     try:
-        opts, args = getopt.getopt(sys.argv[1:], 'hVvH:w:t:r:', ['help', 'version', 'verbose', 'hash=', 'wordlist=',
-                                                                 'type=', 'restore='])
+        opts, args = getopt.getopt(sys.argv[1:], 'hVvH:w:t:r:s', ['help', 'version', 'verbose', 'hashes', 'hash=',
+                                                                  'wordlist=', 'type=', 'restore='])
     except getopt.GetoptError as e:
         print(usage)
         print(str(e) + '\n')
@@ -324,6 +325,10 @@ def main(hash_value=None, wordlist=None, hash_type='', restore_file='', verbose=
 
         elif opt in ('-V', '--version'):
             print('HashJack version %s' % version)
+            sys.exit(0)
+
+        elif opt in ('-s', '--hashes'):
+            print('Supported hash types: {}'.format(', '.join(supported_hashes)))
             sys.exit(0)
 
         elif opt in ('-v', '--verbose'):

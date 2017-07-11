@@ -4,6 +4,8 @@ import os
 import shutil
 from setuptools import setup
 
+hash_jack_version = '1.0.4'
+
 if not os.path.exists('scripts'):
     os.makedirs('scripts')
 
@@ -14,11 +16,11 @@ except IOError:
 
 setup(
     name='hashjack',
-    version='1.0.3',
+    version=hash_jack_version,
     packages=['hashjack_tools'],
     scripts=['scripts/hashjack'],
     url='https://github.com/5kyc0d3r/hashjack',
-    download_url='https://github.com/5kyc0d3r/hashjack/archive/1.0.2.tar.gz',
+    download_url='https://github.com/5kyc0d3r/hashjack/archive/{}.tar.gz'.format(hash_jack_version),
     keywords=['hashjack', 'hashing', 'cracking', 'brute-force', 'python'],
     license='MIT',
     author='5kyc0d3r',
