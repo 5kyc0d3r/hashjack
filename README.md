@@ -1,14 +1,14 @@
 ## HashJack
 [![Build Status](https://travis-ci.org/5kyc0d3r/hashjack.svg?branch=master)](https://travis-ci.org/5kyc0d3r/hashjack) [![Packagist](https://img.shields.io/badge/python-2.7-yellow.svg)](https://www.python.org) [![Packagist](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/5kyc0d3r/hashjack/blob/master/LICENSE) [![Packagist](https://img.shields.io/badge/OS-linux-blue.svg)](https://www.linux.com)
 
-![alt text](http://i.imgur.com/LA7Bmw5.png "HashJack v1.0.2")
+![alt text](http://i.imgur.com/j4XFn3V.png "HashJack v1.0.4")
 
 
 Open source tool for cracking hashes built in Python.
 
 ## Usage
 ```
-HashJack 1.0.2 - (C) 2017 5kyc0d3r
+HashJack 1.0.4 - (C) 2017 5kyc0d3r
 View this project on Github: https://github.com/5kyc0d3r/hashjack
 
 usage: ./hashjack.py --hash <hash-to-crack> --wordlist <path-to-wordlist> [options]
@@ -23,9 +23,24 @@ Options:
   -h, --help                            print this help menu and exit
   -V, --version                         print the hashjack version number and exit
   -v, --verbose                         enable verbose output mode
+  -t, --type <hash-type>                manually specify the type of the hash
+  -r, --restore <restore-file>          use a hashjack restore file to continue hash cracking from a previous session
+  -s, --hashes                          print all the supported hash algorithms and exit
 
 Supported hash types:
-    md5, sha-1, sha-224, sha-256, sha-384, sha-512
+
+  Auto detected
+  =============
+  md5, sha-1, sha-224, sha-256, sha-384, sha-512, mysql-4.1+
+
+  Not auto detected
+  =================
+  The following hash algorithms are not auto-detected by HashJack. You will have to
+  manually specify the type with the -t, --type <hash-type> flag for these.
+
+  LM, NTLM
+
+Total hashing algorithms implemented: 9
 
 HashJack is a tool to easily crack password hashes using a dictionary / wordlist.
 The project is licensed under the terms of the MIT license and is available as
@@ -43,6 +58,10 @@ Hashjack is available on PyPi and can therefore be installed with pip.
 2. Run hashjack:
 
     `$ hashjack`
+
+> To upgrade using pip, run the same command as above with the `--upgrade` flag.
+>
+> Example: `$ sudo pip install hashjack --upgrade`
 
 
 ### Install from source
