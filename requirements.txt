@@ -1,0 +1,2 @@
+passlib==1.7.0.post20170423015547
+setuptools==33.1.1
